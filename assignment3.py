@@ -1,3 +1,5 @@
+import os
+
 student_id=[]
 student_first_name=[]
 student_last_name=[]
@@ -68,10 +70,55 @@ def delete_student():
         print("Please enter a valid student ID.")
 
 
+# 10 need edit to be fit for parameters as guided
+def calculate_average(file_name):
+    with open(file_name, "r") as file:
+        total_GPA = 0
+        number_of_students = 0
+        for line in file:
+            student_items = line.strip().split(',')
+            # print(student_list)
+            individual_GPA = float(student_items[2])
+            total_GPA += individual_GPA
+            number_of_students += 1
+            return round(total_GPA/number_of_students , 2)
+
+# 11
+def load_students(file_name):
+    students_dic = {}
+    with open(file_name, "r") as file:
+        for line in file:
+            items = line.strip().split(',')
+            student_id = items[0]
+            student_info = {
+                "Student Name":items[1],
+                "Student GPA":items[2]
+            }
+            students_dic[student_id] = student_info
+        return students_dic
+
+# 12  not sure if it's right
+def update_students(file_name, students_dic):
+    with open(file_name,"w") as file:
+        for sdudent_id, student_info in students_dic.items():
+            line = f"{sdudent_id},{student_info["Student Name"]},{student_info["Student GPA"]}\n"
+            file.write(line)
+
+
 def main():
-    text_file=input("Please enter the file name: ")
-    open(text_file, 'r+')
+    file_name = input("Please enter the file name: ")
+    file_exisit = os.path.exists(file_name)
+    while file_exisit != True:
+        print("Error: File name doesn't exsist!")
+        file_name = input("Please enter the file name: ")
+        file_exisit = os.path.exists(file_name)
+    print("Student information has been loaded successfully from the file.")
+    # load and turn into a list
+    open(file_name, 'r+')
     load_students()
     update_students()
 
-def load_students():
+main()
+
+   
+
