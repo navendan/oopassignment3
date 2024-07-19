@@ -5,6 +5,35 @@ student_first_name=[]
 student_last_name=[]
 student_gpa=[]
 
+def print_menu():
+    print("Welcome to the Student Registration Program")
+    print("Menu options:")
+    print("1. List all registered students")
+    print("2. Add a new student") 
+    print("3. Edit student")
+    print("4. Delete student")
+    print("5. Find a student")
+    print("6. Calculate student average")
+    print("7. Exit")
+
+print_menu()
+selection= {1:" List all registered students", 2:"Add a new student", 3:"Edit student", 4:"Delete student",
+            5: " Find a student", 6: "Calculate student average", 7: "Exit" }
+int(input("Your selection: "))
+
+def format_student(student_information):
+    student_id = []
+    student_name = []
+    gpa = []
+    return f"{student_id},{student_name},{gpa}"
+format_student()
+
+def display_std_header():
+    print("Student ID, Student Name, GPA")
+    return print
+display_std_header()
+
+
 def printLineOfChars(char, repeats):
     line = str(char) * repeats
     print(line)
