@@ -4,7 +4,10 @@ student_id=[]
 student_first_name=[]
 student_last_name=[]
 student_gpa=[]
-
+# Function Name: print_menu
+# Description: This function lists out the items in the menu.
+# Parameters: None
+# Returns: selection - users menu choice
 def print_menu():
     print("Welcome to the Student Registration Program")
     print("Menu options:")
@@ -15,19 +18,24 @@ def print_menu():
     print("5. Find a student")
     print("6. Calculate student average")
     print("7. Exit")
-
 print_menu()
 selection= {1:" List all registered students", 2:"Add a new student", 3:"Edit student", 4:"Delete student",
             5: " Find a student", 6: "Calculate student average", 7: "Exit" }
 int(input("Your selection: "))
-
+# Function Name: format_student
+# Description: This function displays student information
+# Parameters: student_information
+# Returns: student_id, student_name, student_gpa
 def format_student(student_information):
     student_id = []
     student_name = []
     gpa = []
     return f"{student_id},{student_name},{gpa}"
 format_student()
-
+# Function Name: display_std_header
+# Description: This function displays student header
+# Parameters: None
+# Returns:  Student ID, Student Name, GPA
 def display_std_header():
     print("Student ID, Student Name, GPA")
     return print
